@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var servicesRouter = require('./routes/services');
 var userRouter = require('./routes/user');
+var serviceMusic = require('./routes/music');
 
 var app = express();
 
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/1.0', servicesRouter);
 app.use('/api/1.0', userRouter);
-
+app.use('/api/1.0', serviceMusic);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

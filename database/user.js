@@ -22,19 +22,6 @@ var USERSCHEMA = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "El password es necesario"],
-        min: [6, "El password debe tener un minimo de 6 caracteres"],
-        validate: {
-           validator: (value) => {
-               if (!/[A-Z]+/.test(value)) {
-                   return false
-               }
-               if (!/[\$\^\@\&\(\)\{\}\#]+/.test(value)) {
-                   return false
-               }
-               return true;
-           },
-           message: props => `${props.value} El password necesata 1 mayuscula y un caracter especial`
-        }
     },
     roles: {
         type: Array,
